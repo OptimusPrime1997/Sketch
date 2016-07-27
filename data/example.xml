@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+singlePoint
+	pointX
+	pointY
+doublePoint
+	singlePoint
+	singlePoint
+singleClick
+	singlePoint
+	id
+doubleClick
+	singlePoint
+	id
+drag
+	doublePoint
+drawArea
+	all/some
+	doublePoint
+delayTime
+state/root
+	fileName
+target
+	fileName
+	action
+bridge
+	startState
+	endState
+ -->
+ <root>
+       <fileName>
+       		1.png
+       </fileName>
+	    <operation>
+	       <singleClick>
+	           <singlePoint>
+	               <pointX>
+	                   400.00
+	               </pointX>
+	               <pointY>
+	                   400.00
+	               </pointY>
+	               <id>
+	                   button1
+	               </id>
+	           </singlePoint>
+	       </singleClick>
+	    </operation>
+</root>
+
+<state>
+       <fileName>
+       	2.png
+       </fileName>
+	    <operation>
+	       <drag>
+	           <doublePoint>
+	               <singlePoint>
+	                   <pointX>
+	                       120.00
+	                   </pointX>
+	                   <pointY>
+	                       150.00
+	                   </pointY>
+	               </singlePoint>
+	               <singlePoint>
+	                   <pointX>
+	                       130.00
+	                   </pointX>
+	                   <pointY>
+	                       160.00
+	                   </pointY>
+	               </singlePoint>
+	           </doublePoint>
+	       </drag>
+	       <delayTime>
+	           10
+	       </delayTime>
+	    </operation>
+</state>
+    
+<bridge>
+    <startState>
+       <fileName>
+       	1.png
+       </fileName>
+    </startState>
+    <endState>
+       <fileName>
+       	2.png
+       </fileName>
+    </endState>
+</bridge>
+
+<target>
+	    <fileName>
+	        3.png
+	    </fileName>
+	    <operation>
+	        <id>
+	            textView1
+	        </id>
+	        <expectView>
+	            1000
+	        </expectView>
+	    </operation>
+</target>
+
+<targetBridge>
+    <startState>
+       <fileName>
+       	3.png
+       </fileName>
+    </startState>
+    <endState>
+       <fileName>
+       	4.png
+       </fileName>
+    </endState>
+</targetBridge>
+
+
+
+
+

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+singlePoint
+	pointX
+	pointY
+doublePoint
+	singlePoint
+	singlePoint
+click
+	singlePoint
+	id
+longCllick
+	singlePoint
+	id
+drag
+	doublePoint
+drawArea
+	all/some
+	doublePoint
+delayTime
+state/root
+	fileName
+target
+	fileName
+	action
+bridge
+	startState
+	endState
+ -->
+ <state typeCode=0>
+     <stateId>
+         1
+     </stateId>
+     <fileName>
+         1.png
+     </fileName>
+ </state>
+	    <operation type="singlePoint" action="click" delayTime=5>
+	           <singlePoint>
+	               <pointX>
+	                   400.00
+	               </pointX>
+	               <pointY>
+	                   400.00
+	               </pointY>
+	           </singlePoint>
+	    </operation>
+<state typeCode=0>
+     <stateId>
+         1
+     </stateId>
+     <fileName>
+         1.png
+     </fileName>
+ </state>
+	    <operation type="component" action="click" delayTime="5">
+	           <resourceId>
+	               button1
+	           </resourceId>
+	    </operation>
+	    
+<state typeCode=1>
+     <stateId>
+         2
+     </stateId>
+     <fileName>
+         2.png
+     </fileName>
+ </state>
+ 	    
+	    <operation type="singlePoint" action="longClick" delayTime="8">
+	        <singlePoint>
+	               <pointX>
+	                   400.00
+	               </pointX>
+	               <pointY>
+	                   400.00
+	               </pointY>
+	           </singlePoint>
+	    </operation>
+	    
+<state typeCode=1>
+     <stateId>
+         3
+     </stateId>
+     <fileName>
+         3.png
+     </fileName>
+ </state>	    
+ 
+	    <operation type="components" action="longClick" delayTime="8">
+	        <resourceIdList>
+			       <resourceId>
+			               button2
+			           </resourceId>
+			            <resourceId>
+			               button3
+			           </resourceId>
+		        </resourceIdList>
+	    </operation>
+	    
+<state typeCode=1>
+     <stateId>
+         4
+     </stateId>
+     <fileName>
+         4.png
+     </fileName>
+ </state>
+ 
+	    <operation  type="doublePoint" action="drag" delayTime="8">
+	           <doublePoint>
+	               <singlePoint>
+	                   <pointX>
+	                       120.00
+	                   </pointX>
+	                   <pointY>
+	                       150.00
+	                   </pointY>
+	               </singlePoint>
+	               <singlePoint>
+	                   <pointX>
+	                       130.00
+	                   </pointX>
+	                   <pointY>
+	                       160.00
+	                   </pointY>
+	               </singlePoint>
+	           </doublePoint>
+	    </operation>
+	    
+<state typeCode=1>
+     <stateId>
+         5
+     </stateId>
+     <fileName>
+         5.png
+     </fileName>
+ </state>	    
+ 
+	      <operation  type="pointToArea"  action="drag" >
+	               <singlePoint>
+	                   <pointX>
+	                       120.00
+	                   </pointX>
+	                   <pointY>
+	                       150.00
+	                   </pointY>
+	               </singlePoint>
+	               <area>
+	                   <all>
+	                       <doublePoint>
+				                 <singlePoint>
+				                   <pointX>
+				                       120.00
+				                   </pointX>
+				                   <pointY>
+				                       160.00
+				                   </pointY>
+				               </singlePoint>
+				                <singlePoint>
+				                   <pointX>
+				                       130.00
+				                   </pointX>
+				                   <pointY>
+				                       170.00
+				                   </pointY>
+				               </singlePoint>
+			               </doublePoint>
+		               </all>
+	               </area>
+	    </operation>
+	   
+<state typeCode=1>
+     <stateId>
+         6
+     </stateId>
+     <fileName>
+         6.png
+     </fileName>
+ </state>
+ 
+	        <operation  type="pointToArea"  action="drag" delayTime="5">
+	               <singlePoint>
+	                   <pointX>
+	                       120.00
+	                   </pointX>
+	                   <pointY>
+	                       150.00
+	                   </pointY>
+	               </singlePoint>
+	               <area>
+	                   <some>
+	                       <doublePoint>
+				                 <singlePoint>
+				                   <pointX>
+				                       120.00
+				                   </pointX>
+				                   <pointY>
+				                       160.00
+				                   </pointY>
+				               </singlePoint>
+				                <singlePoint>
+				                   <pointX>
+				                       130.00
+				                   </pointX>
+				                   <pointY>
+				                       170.00
+				                   </pointY>
+				               </singlePoint>
+			               </doublePoint>
+		               </some>
+	               </area>
+	    </operation>
+	    
+<state typeCode=1>
+     <stateId>
+         7
+     </stateId>
+     <fileName>
+         7.png
+     </fileName>
+ </state>
+	        	    
+	     <operation  type="components" action="click" isRecursive="1" >
+	            <resourceIdList>
+			       <resourceId>
+			               button2
+			           </resourceId>
+			            <resourceId>
+			               button3
+			           </resourceId>
+		        </resourceIdList>
+	    </operation>
+<state >
+     <stateId>
+         8
+     </stateId>
+     <fileName>
+         8.png
+     </fileName>
+ </state>	    
+ 
+	    <operation type="component" action="target">
+	        <resourceId>
+	            scoreTextView
+	        </resourceId>
+	        <expectText>
+	            8900
+	        </expectText>
+	    </operation>
