@@ -1,4 +1,4 @@
-package sketch.gui.testing;
+package com.example.gui.enums;
 
 public enum TType {
 	ATOMIC, 

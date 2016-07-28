@@ -11,7 +11,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import com.example.gui.enums.ClassType;
+
 import android.graphics.PointF;
+import android.os.IInterface;
 import android.util.Log;
 
 /**
@@ -42,7 +45,14 @@ public class ParseXML {
 
 			NodeList nodes = doc.getElementsByTagName("node");
 			Log.w("TAG-Pn2", nodes.getLength() + "");
-
+			int imageButtonNum=0;
+			int buttonNum=0;
+			int textViewNum=0;
+			int imageViewNum=0;
+			int tableRowNum=0;
+			int tabWidgetNum=0;
+			int viewSwitcherNum=0;
+			int tableHostNum=0;
 			for (int i = 0; i < nodes.getLength(); i++) {
 				Element node = (Element) nodes.item(i);
 				id = node.getAttribute("index");
@@ -54,6 +64,31 @@ public class ParseXML {
 				Log.w("TAG-Pn9", "id=" + id + " text=" + tt + " class=" + wn + " resource-id=" + rd + " package=" + pn
 						+ " bounds=" + bd);
 				if (wn.startsWith(CLASS_PRE) && !wn.contains("Layout")) {
+					if(wn.equals(ClassType.IMAGEBUTTON.getValue())){
+						id=imageButtonNum+"";
+						imageButtonNum++;
+					}else if(wn.equals(ClassType.BUTTON.getValue())){
+						id=buttonNum+"";
+						buttonNum++;
+					}else if(wn.equals(ClassType.TEXTVIEW.getValue())){
+						id=textViewNum+"";
+						textViewNum++;
+					}else if(wn.equals(ClassType.IMAGEVIEW.getValue())){
+						id=imageViewNum+"";
+						imageViewNum++;
+					}else if(wn.equals(ClassType.TABLEROW.getValue())){
+						id=tableRowNum+"";
+						tableRowNum++;
+					}else if(wn.equals(ClassType.TABWIDGET.getValue())){
+						id=tabWidgetNum+"";
+						tabWidgetNum++;
+					}else if(wn.equals(ClassType.VIEWSWITCHER.getValue())){
+						id=viewSwitcherNum+"";
+						viewSwitcherNum++;
+					}else if(wn.equals(ClassType.TABLEHOST.getValue())){
+						id=tableHostNum+"";
+						tableHostNum++;
+					}
 					AndroidNode mid = new AndroidNode(id, tt, wn.substring(CLASS_PRE.length()), pn, bd, rd);
 					node_list.add(mid);
 					System.out.println(">>>>>>>>>>>"+node_list.size());

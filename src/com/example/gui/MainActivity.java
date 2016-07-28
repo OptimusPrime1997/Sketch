@@ -14,10 +14,10 @@ import java.util.Locale;
 import org.dom4j.Document;
 import org.dom4j.Element;
 
+import com.example.gui.enums.TType;
+
 import sketch.gui.testing.AndroidNode;
 import sketch.gui.testing.ParseXML;
-import sketch.gui.testing.TType;
-
 import weka.gui.LogWindow;
 
 import android.annotation.SuppressLint;
