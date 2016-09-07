@@ -18,7 +18,6 @@ import com.example.gui.enums.TType;
 
 import sketch.gui.testing.AndroidNode;
 import sketch.gui.testing.ParseXML;
-import weka.gui.LogWindow;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

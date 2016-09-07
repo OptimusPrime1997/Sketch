@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.dom4j.Document;
+import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
 import android.annotation.SuppressLint;
@@ -57,8 +58,15 @@ public class WriteXML {
 	
 	public static void writeObject(Document document, String fileName) {
 		try {
+//			OutputFormat xmlFormat=new OutputFormat();
+//			xmlFormat.setEncoding("UTF-8"); 
+//	        // 设置换行 
+//	        xmlFormat.setNewlines(true); 
+//	        // 生成缩进 
+//	        xmlFormat.setIndent(true); 
+//	        // 使用4个空格进行缩进, 可以兼容文本编辑器 
+//	        xmlFormat.setIndent("    "); 
 			XMLWriter writer = new XMLWriter(new OutputStreamWriter(new FileOutputStream(fileName), "UTF-8"));
-			writer.write(document);
 			writer.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();

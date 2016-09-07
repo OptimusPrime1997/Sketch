@@ -45,14 +45,17 @@ public class ParseXML {
 
 			NodeList nodes = doc.getElementsByTagName("node");
 			Log.w("TAG-Pn2", nodes.getLength() + "");
-			int imageButtonNum=0;
-			int buttonNum=0;
-			int textViewNum=0;
-			int imageViewNum=0;
-			int tableRowNum=0;
-			int tabWidgetNum=0;
-			int viewSwitcherNum=0;
-			int tableHostNum=0;
+			int imageButtonNum = 0;
+			int buttonNum = 0;
+			int textViewNum = 0;
+			int imageViewNum = 0;
+			int tableRowNum = 0;
+			int tabWidgetNum = 0;
+			int viewSwitcherNum = 0;
+			int tableHostNum = 0;
+			int editTextNum = 0;
+			int menuNum = 0;
+			int menuItemNum = 0;
 			for (int i = 0; i < nodes.getLength(); i++) {
 				Element node = (Element) nodes.item(i);
 				id = node.getAttribute("index");
@@ -64,34 +67,43 @@ public class ParseXML {
 				Log.w("TAG-Pn9", "id=" + id + " text=" + tt + " class=" + wn + " resource-id=" + rd + " package=" + pn
 						+ " bounds=" + bd);
 				if (wn.startsWith(CLASS_PRE) && !wn.contains("Layout")) {
-					if(wn.equals(ClassType.IMAGEBUTTON.getValue())){
-						id=imageButtonNum+"";
+					if (wn.equals(ClassType.IMAGEBUTTON.getValue())) {
+						id = imageButtonNum + "";
 						imageButtonNum++;
-					}else if(wn.equals(ClassType.BUTTON.getValue())){
-						id=buttonNum+"";
+					} else if (wn.equals(ClassType.BUTTON.getValue())) {
+						id = buttonNum + "";
 						buttonNum++;
-					}else if(wn.equals(ClassType.TEXTVIEW.getValue())){
-						id=textViewNum+"";
+					} else if (wn.equals(ClassType.TEXTVIEW.getValue())) {
+						id = textViewNum + "";
 						textViewNum++;
-					}else if(wn.equals(ClassType.IMAGEVIEW.getValue())){
-						id=imageViewNum+"";
+					} else if (wn.equals(ClassType.IMAGEVIEW.getValue())) {
+						id = imageViewNum + "";
 						imageViewNum++;
-					}else if(wn.equals(ClassType.TABLEROW.getValue())){
-						id=tableRowNum+"";
+					} else if (wn.equals(ClassType.TABLEROW.getValue())) {
+						id = tableRowNum + "";
 						tableRowNum++;
-					}else if(wn.equals(ClassType.TABWIDGET.getValue())){
-						id=tabWidgetNum+"";
+					} else if (wn.equals(ClassType.TABWIDGET.getValue())) {
+						id = tabWidgetNum + "";
 						tabWidgetNum++;
-					}else if(wn.equals(ClassType.VIEWSWITCHER.getValue())){
-						id=viewSwitcherNum+"";
+					} else if (wn.equals(ClassType.VIEWSWITCHER.getValue())) {
+						id = viewSwitcherNum + "";
 						viewSwitcherNum++;
-					}else if(wn.equals(ClassType.TABLEHOST.getValue())){
-						id=tableHostNum+"";
+					} else if (wn.equals(ClassType.TABLEHOST.getValue())) {
+						id = tableHostNum + "";
 						tableHostNum++;
+					} else if (wn.equals(ClassType.EDITTEXT.getValue())) {
+						id = editTextNum + "";
+						editTextNum++;
+					} else if (wn.equals(ClassType.MENU.getValue())) {
+						id = menuNum + "";
+						menuNum++;
+					} else if (wn.equals(ClassType.MENUITEM.getValue())) {
+						id = menuItemNum + "";
+						menuItemNum++;
 					}
 					AndroidNode mid = new AndroidNode(id, tt, wn.substring(CLASS_PRE.length()), pn, bd, rd);
 					node_list.add(mid);
-					System.out.println(">>>>>>>>>>>"+node_list.size());
+					System.out.println(">>>>>>>>>>>" + node_list.size());
 				}
 			}
 
@@ -105,8 +117,8 @@ public class ParseXML {
 	public AndroidNode findWidgetByLocation(double x, double y) {
 		Log.w("TAG-Pn3", "use findwidgetByLocation");
 		AndroidNode mid_and;
-		//for (int i = 0; i < node_list.size(); i++) {
-		for (int i = node_list.size()-1; i>=0; i--) {
+		// for (int i = 0; i < node_list.size(); i++) {
+		for (int i = node_list.size() - 1; i >= 0; i--) {
 			mid_and = node_list.get(i);
 			// mid_and.print();
 			if (mid_and.isLocated(x, y)) {
@@ -138,14 +150,14 @@ public class ParseXML {
 			y1_cup = Math.min(mid.y2, rect[1].y);
 			// 计算两者重合部分的面积，面积大于比例则算选中了控件
 			if ((calRectArea(x_cup, y_cup, x1_cup, y1_cup) / calRectArea(mid.x1, mid.y1, mid.x2, mid.y2)) >= ratio
-					&&rect[1].x<mid.x1&&rect[0].x<mid.x2&&rect[0].y<mid.y2&&rect[1].y>mid.y1) {
+					&& rect[1].x < mid.x1 && rect[0].x < mid.x2 && rect[0].y < mid.y2 && rect[1].y > mid.y1) {
 				wid_list.add(mid);
 			}
 		}
-		//System.out.println("<<<<<<<"+wid_list.size());
-		if (wid_list.size()==0) {
-			double centerX = (rect[0].x+rect[1].x)/2;
-			double centerY = (rect[0].y+rect[1].y)/2;
+		// System.out.println("<<<<<<<"+wid_list.size());
+		if (wid_list.size() == 0) {
+			double centerX = (rect[0].x + rect[1].x) / 2;
+			double centerY = (rect[0].y + rect[1].y) / 2;
 			AndroidNode temp = findWidgetByLocation(centerX, centerY);
 			wid_list.add(temp);
 		}
