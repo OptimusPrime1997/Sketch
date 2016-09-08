@@ -1,9 +1,6 @@
 package com.example.gui;
 
 import java.util.ArrayList;
-
-import com.example.gui.enums.FileType;
-
 import android.annotation.SuppressLint;
 
 

@@ -4,8 +4,6 @@ public enum TAction {
 	CLICK, 
 	LONG_CLICK, 
 	DRAG,
-	TIMER,
-	FORK,
 	
 	UNINDENTIFIED;
 

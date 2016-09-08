@@ -1,5 +1,8 @@
-/bin
-*.class
-/target
-.DS_Store
+*.prefs
+*.DS_Store
+*.cache
+*.properties
+project.properties
+*.project
 /.settings
+/bin

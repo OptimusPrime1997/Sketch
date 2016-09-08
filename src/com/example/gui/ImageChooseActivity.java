@@ -3,7 +3,6 @@ package com.example.gui;
 import java.io.File;
 import java.util.ArrayList;
 import android.os.Bundle;
-import android.util.Log;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +11,6 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import weka.gui.Main;
 import android.widget.GridView;
 import android.widget.Toast;
 import android.view.KeyEvent;
@@ -83,7 +81,8 @@ public class ImageChooseActivity extends Activity {
 			if (files[i].isDirectory()) {
 				isDirectory = true;
 			}
-			FileInfo fileInfo = new FileInfo(fileAbsolutePath, fileName, isDirectory);
+			FileInfo fileInfo = new FileInfo(fileAbsolutePath, fileName,
+					isDirectory);
 			mFileLists.add(fileInfo);
 		}
 		// When first enter , the object of mAdatper don't initialized
@@ -106,8 +105,6 @@ public class ImageChooseActivity extends Activity {
 				break;
 			case R.id.btExit:
 				setResult(RESULT_CANCELED);
-				Log.w("TAG-exit", "chooseItem is false");
-
 				finish();
 				break;
 			default:
@@ -117,19 +114,16 @@ public class ImageChooseActivity extends Activity {
 	};
 
 	private AdapterView.OnItemClickListener mItemClickListener = new OnItemClickListener() {
-		public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-			FileInfo fileInfo = (FileInfo) (((ImageChooserAdapter) adapterView.getAdapter()).getItem(position));
-			if (fileInfo.isDirectory()) { // 点击项为文件夹, 显示该文件夹下所有文件
+		public void onItemClick(AdapterView<?> adapterView, View view,
+				int position, long id) {
+			FileInfo fileInfo = (FileInfo) (((ImageChooserAdapter) adapterView
+					.getAdapter()).getItem(position));
+			if (fileInfo.isDirectory()) // 点击项为文件夹, 显示该文件夹下所有文件
 				updateFileItems(fileInfo.getFilePath());
-			} else if (fileInfo.isImage()) { // 是图片 ， 则将该路径通知给调用者
+			else if (fileInfo.isImage()) { // 是图片 ， 则将该路径通知给调用者
 				Intent intent = new Intent();
-				intent.putExtra(MainActivity.EXTRA_FILE_CHOOSER, fileInfo.getFilePath());
-
-				intent.putExtra("chooseItem", true);
-				MainActivity.isStartPage = false;
-				
-				Log.w("TAG-Q1", "chooseImageActivity set chooseItem is true");
-
+				intent.putExtra(MainActivity.EXTRA_FILE_CHOOSER,
+						fileInfo.getFilePath());
 				setResult(RESULT_OK, intent);
 				finish();
 			} else { // 其他文件.....
@@ -139,7 +133,8 @@ public class ImageChooseActivity extends Activity {
 	};
 
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+		if (event.getAction() == KeyEvent.ACTION_DOWN
+				&& event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
 			backProcess();
 			return true;
 		}

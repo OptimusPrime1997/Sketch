@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="horizontal"
     android:padding="5.0dip" >
 
-        <!-- android:layout_margin="2dip" -->
-        <!--  android:adjustViewBounds="true" -->
     <Button
         android:id="@+id/imgBackFolder"
-        android:layout_width="60dp"
+        android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
-        android:background="@drawable/button_style"
+        android:layout_margin="2dip"
+        android:adjustViewBounds="true"
         android:text="back" />
 
-     <!--    android:layout_margin="1dip" -->
     <TextView
         android:id="@+id/tvPath"
         android:layout_width="wrap_content"
@@ -30,12 +28,10 @@
 
     <Button
         android:id="@+id/btExit"
-        android:layout_width="65dp"
-        android:layout_height="45dp"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"
-        android:background="@drawable/button_style"
         android:gravity="center"
         android:text="exit" >
     </Button>
@@ -46,9 +42,8 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/btExit"
         android:layout_below="@id/imgBackFolder"
-        android:layout_marginTop="10dip"
         android:clickable="true"
-        android:columnWidth="100dp"
+        android:columnWidth="90dp"
         android:horizontalSpacing="10dp"
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
