@@ -6,3 +6,5 @@ project.properties
 *.project
 /.settings
 /bin
+.classpath
+.project
